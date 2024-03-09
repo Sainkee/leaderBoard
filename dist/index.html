@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="bg-slate-800">
+    <div class="mt-10">
+      <h1 class="md:text-6xl text-3xl text-center mb-10 text-white">
+        Leaderboard
+      </h1>
+      <form action="" class="mx-auto rounded-md w-full">
+        <div
+          class="flex flex-col sm:flex-row mx-auto bg-[#e8e8e8] p-5 justify-between sm:items-center"
+        >
+          <div
+            class="flex flex-wrap md:w-full sm:flex-row text-[1.3rem] w-[60%]"
+          >
+            <input type="text" class="input-field" placeholder="First Name" />
+            <input type="text" class="input-field" placeholder="Last Name" />
+            <input type="text" class="input-field" placeholder="Country" />
+            <input
+              type="number"
+              class="input-field"
+              placeholder="Player Score"
+            />
+          </div>
+          <button class="btn-add">Add Player</button>
+        </div>
+      </form>
+
+      <div class="list mt-10"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
