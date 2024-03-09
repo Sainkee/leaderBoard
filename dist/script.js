@@ -38,8 +38,10 @@ list.addEventListener("click", (e) => {
   }
 
   if (e.target.classList.contains("minus")) {
+    if (players[index].score <= 0) {
+      return;
+    }
     players[index].score = Number(players[index].score) - 5;
-
     displayData();
   }
 
@@ -55,14 +57,16 @@ function displayData() {
   list.innerHTML = "";
   players.forEach((element, index) => {
     list.innerHTML += `
-      <div class="flex justify-between w-[80%] mx-auto  p-5 text-2xl ">
-        <span>${element.firstName}</span>
-        <span>${element.country}</span>
+      <div class="flex justify-between  mx-auto p-5  odd:bg-slate-400 even:bg-[#F8F4EC]  text-2xl shadow-md ">
+        <span>${
+          element.firstName.charAt(0).toUpperCase() + element.firstName.slice(1)
+        }</span>
+        <span>${element.country.toUpperCase()}</span>
         <span>${element.score}</span>
         <span class="flex justify-between updateSpan gap-4 ">
-          <span title="${index}" class = "delete">&#x1F5D1;</span>
-          <span title="${index}" class = "bg-green-500 px-2 rounded-lg plus">+5</span >
-          <span title="${index}" class = "bg-green-500 px-3 rounded-lg minus">-5</span>
+          <span title="${index}" class = "select-none delete">&#x1F5D1;</span>
+          <span title="${index}" class = "bg-red-500 px-2 text-white rounded-lg plus select-none">+5</span >
+          <span title="${index}" class = "bg-red-500 px-3 text-white rounded-lg minus select-none">-5</span>
         </span>
       </div>
     `;

@@ -8,19 +8,34 @@
   </head>
   <body class="bg-slate-800">
     <div class="mt-10 w-full">
-      <h1 class="md:text-6xl text-3xl text-center mb-10 text-white">
-        Leaderboard
+      <h1
+        class="md:text-6xl text-3xl text-center mb-10 text-gradient-to-tr from-pink-400 via-yellow-300"
+      >
+        LeaderBoard
       </h1>
-      <form action="" class="mx-auto w-[80%]">
+
+      <form action="" class="mx-auto md:w-[80%] p-2 md:p-0">
         <div
           class="flex flex-col sm:flex-row mx-auto bg-[#e8e8e8] p-5 justify-between sm:items-center rounded-t-md"
         >
           <div
-            class="flex flex-wrap md:w-full sm:flex-row text-[1.3rem] w-[60%]"
+            class="flex flex-wrap md:w-full sm:flex-row text-[1.3rem] w-full"
           >
-            <input type="text" class="input-field" placeholder="First Name" />
-            <input type="text" class="input-field" placeholder="Last Name" />
-            <input type="text" class="input-field" placeholder="Country" />
+            <input
+              type="text"
+              class="input-field md:w-[200px]"
+              placeholder="First Name"
+            />
+            <input
+              type="text"
+              class="input-field md:w-[200px]"
+              placeholder="Last Name"
+            />
+            <input
+              type="text"
+              class="input-field md:w-[200px]"
+              placeholder="Country"
+            />
             <input
               type="number"
               class="input-field"
@@ -32,7 +47,7 @@
       </form>
 
       <div
-        class="list mt-10 rounded-b-md bg-[#e8e8e8] w-[80%] mx-auto text-black"
+        class="list rounded-b-md md:p-0 md:w-[80%] my-5 mx-auto text-black"
       ></div>
     </div>
     <script src="script.js"></script>
