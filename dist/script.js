@@ -57,7 +57,7 @@ function displayData() {
   list.innerHTML = "";
   players.forEach((element, index) => {
     list.innerHTML += `
-      <div class="flex justify-between  mx-auto p-5  odd:bg-slate-400 even:bg-[#F8F4EC]  text-2xl shadow-md ">
+      <div class="flex justify-between  mx-auto p-5  odd:bg-slate-400 even:bg-slate-500 text-2xl shadow-md ">
         <span>${
           element.firstName.charAt(0).toUpperCase() +
           element.firstName.slice(1) +
@@ -67,8 +67,8 @@ function displayData() {
         }</span>
         <span>${element.country.toUpperCase()}</span>
         <span>${element.score}</span>
-        <span class="flex justify-between updateSpan gap-4 ">
-          <span title="${index}" class = "select-none delete">&#x1F5D1;</span>
+        <span class="flex justify-between updateSpan gap-4 cursor-pointer">
+          <span title="${index}" class = "select-none delete odd:bg-white  even:bg-black rounded-md px-2">&#x1F5D1;</span>
           <span title="${index}" class = "bg-red-500 px-2 text-white rounded-lg plus select-none">+5</span >
           <span title="${index}" class = "bg-red-500 px-3 text-white rounded-lg minus select-none">-5</span>
         </span>
