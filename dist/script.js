@@ -59,7 +59,11 @@ function displayData() {
     list.innerHTML += `
       <div class="flex justify-between  mx-auto p-5  odd:bg-slate-400 even:bg-[#F8F4EC]  text-2xl shadow-md ">
         <span>${
-          element.firstName.charAt(0).toUpperCase() + element.firstName.slice(1)
+          element.firstName.charAt(0).toUpperCase() +
+          element.firstName.slice(1) +
+          " " +
+          element.lastName.charAt(0).toUpperCase() +
+          element.firstName.slice(1)
         }</span>
         <span>${element.country.toUpperCase()}</span>
         <span>${element.score}</span>
