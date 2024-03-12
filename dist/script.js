@@ -12,6 +12,8 @@ btn.addEventListener("click", function (e) {
     lastName: firstName[1].value,
     country: firstName[2].value,
     score: firstName[3].value,
+    time: formatDate(),
+    id: players.length,
   };
   players.push(player);
 
@@ -30,12 +32,10 @@ btn.addEventListener("click", function (e) {
 });
 
 list.addEventListener("click", (e) => {
-  let index = parseInt(e.target.title);
+  let index = parseInt(e.target.getAttribute("data-id"));
 
   if (e.target.classList.contains("plus")) {
     players[index].score = Number(players[index].score) + 5;
-
-    displayData();
   }
 
   if (e.target.classList.contains("minus")) {
@@ -43,14 +43,13 @@ list.addEventListener("click", (e) => {
       return;
     }
     players[index].score = Number(players[index].score) - 5;
-    displayData();
   }
 
   if (e.target.classList.contains("delete")) {
-    let index = parseInt(e.target.title);
     players = players.filter((player, idx) => idx !== index);
-    displayData();
   }
+  // players[index].time = formatDate();
+  displayData();
 });
 
 function displayData() {
@@ -71,16 +70,31 @@ function displayData() {
           " " +
           element.lastName.charAt(0).toUpperCase() +
           element.lastName.slice(1)
-        }</span>
+        }
+        |  <span>${element.time}</span> </span>
         <span>${element.country.toUpperCase()}</span>
         <span>${element.score}</span>
         <span class="flex justify-between updateSpan gap-4 cursor-pointer">
-          <span title="${index}" class = "select-none delete odd:bg-white  even:bg-black rounded-md px-2">&#x1F5D1;</span>
-          <span title="${index}" class = "bg-red-500 px-2 text-white rounded-lg plus select-none">+5</span >
-          <span title="${index}" class = "bg-red-500 px-3 text-white rounded-lg minus select-none">-5</span>
+          <span  data-id="${index}" class = "select-none delete odd:bg-white  even:bg-black rounded-md px-2">&#x1F5D1;</span>
+          <span   data-id="${index}" class = "bg-red-500 px-2 text-white rounded-lg plus select-none">+5</span >
+          <span   data-id="${index}" class = "bg-red-500 px-3 text-white rounded-lg minus select-none">-5</span>
         </span>
       </div>
     `;
     });
   }
+}
+function formatDate() {
+  let date = new Date();
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: false,
+    timeZone: "UTC",
+  };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
 }
