@@ -1,17 +1,33 @@
 let btn = document.querySelector("button");
 let list = document.querySelector(".list");
-let firstName = document.querySelectorAll(".input-field");
+let values = document.querySelectorAll(".input-field");
 
 let players = [];
 window.onload = displayData();
 
 btn.addEventListener("click", function (e) {
   e.preventDefault();
+  this.style.boxShadow =
+    "0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa";
+
+  setTimeout(() => {
+    this.style.boxShadow = "none";
+  }, 100);
+
+  for (let i = 0; i < values.length; i++) {
+    if (!values[i].value.trim()) {
+      allFieldsFilled = false;
+      alert("All fields are required");
+
+      return;
+    }
+  }
+
   let player = {
-    firstName: firstName[0].value,
-    lastName: firstName[1].value,
-    country: firstName[2].value,
-    score: firstName[3].value,
+    firstName: values[0].value,
+    lastName: values[1].value,
+    country: values[2].value,
+    score: values[3].value,
     time: formatDate(),
     id: players.length,
   };
@@ -19,16 +35,9 @@ btn.addEventListener("click", function (e) {
 
   displayData();
 
-  firstName.forEach((element) => {
+  values.forEach((element) => {
     element.value = "";
   });
-
-  this.style.boxShadow =
-    "0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa";
-
-  setTimeout(() => {
-    this.style.boxShadow = "none";
-  }, 100);
 });
 
 list.addEventListener("click", (e) => {
