@@ -629,11 +629,6 @@ video {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .from-pink-400 {
   --tw-gradient-from: #f472b6 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(244 114 182 / 0) var(--tw-gradient-to-position);
@@ -677,8 +672,18 @@ video {
   line-height: 2.25rem;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
 .text-\[1\.3rem\] {
   font-size: 1.3rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-black {
@@ -760,19 +765,9 @@ h1 {
   background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
-.odd\:bg-black:nth-child(odd) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
 .odd\:bg-white:nth-child(odd) {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.even\:bg-\[\#F8F4EC\]:nth-child(even) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 244 236 / var(--tw-bg-opacity));
 }
 
 .even\:bg-black:nth-child(even) {

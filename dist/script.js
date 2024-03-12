@@ -3,6 +3,7 @@ let list = document.querySelector(".list");
 let firstName = document.querySelectorAll(".input-field");
 
 let players = [];
+window.onload = displayData();
 
 btn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -55,15 +56,21 @@ list.addEventListener("click", (e) => {
 function displayData() {
   players.sort((a, b) => b.score - a.score);
   list.innerHTML = "";
-  players.forEach((element, index) => {
-    list.innerHTML += `
+
+  if (players.length == 0) {
+    list.innerHTML += ` <div class=" mx-auto p-5 text-center odd:bg-slate-400 even:bg-slate-500 shadow-md ">
+    <span class="text-4xl  text-white">No Player Added</span>
+</div>`;
+  } else {
+    players.forEach((element, index) => {
+      list.innerHTML += `
       <div class="flex justify-between  mx-auto p-5  odd:bg-slate-400 even:bg-slate-500 text-2xl shadow-md ">
         <span>${
           element.firstName.charAt(0).toUpperCase() +
           element.firstName.slice(1) +
           " " +
           element.lastName.charAt(0).toUpperCase() +
-          element.firstName.slice(1)
+          element.lastName.slice(1)
         }</span>
         <span>${element.country.toUpperCase()}</span>
         <span>${element.score}</span>
@@ -74,5 +81,6 @@ function displayData() {
         </span>
       </div>
     `;
-  });
+    });
+  }
 }
